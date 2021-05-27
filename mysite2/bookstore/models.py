@@ -17,6 +17,11 @@ class Book(models.Model):
         # 修改表名
         db_table = "book"
 
+        # 修改admin后台的的名称显示,单数形态
+        verbose_name = "我的图书馆"
+        # 直接放复数=单数形态，去掉S的显示
+        verbose_name_plural = verbose_name
+
 
 class Author(models.Model):
     # null = False,默认非空
@@ -26,6 +31,8 @@ class Author(models.Model):
 
     class Meta:
         db_table = "author"
+        verbose_name = "作者档案"
+        verbose_name_plural = verbose_name
 
 
 """

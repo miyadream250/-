@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from bookstore.models import Book
+from bookstore.models import Book, Author
 
 
 class BookManager(admin.ModelAdmin):
@@ -23,15 +23,25 @@ class BookManager(admin.ModelAdmin):
     list_editable = ["price", "market_price"]
 
 
+class AuthorManager(admin.ModelAdmin):
+    list_display = ["name", "age", "email"]
+    list_editable = ["age"]
+    # list_per_page = ["id"]
+
+
 # 把我们的模型类注册到admin后台
 admin.site.register(Book, BookManager)
+
+admin.site.register(Author, AuthorManager)
 
 """
 python manage.py createsuperuser
 
 登录管理后台
 127.0.0.1:8000/admin
-
-
 增加用户、组
+
+
+创建自定义的后台管理类，继承admin.ModelAdmin
+admin.site.register(Book,后台管理类)
 """

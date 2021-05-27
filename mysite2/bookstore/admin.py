@@ -4,6 +4,9 @@ from bookstore.models import Book
 
 
 class BookManager(admin.ModelAdmin):
+    """
+    常规模型类属性：
+    """
     # list_display是固定的写法变量，不能随意改，不同的类属性，关联不同的样式
     list_display = ["id", "title", "pub", "price", "market_price", "is_delete"]
 
@@ -14,11 +17,10 @@ class BookManager(admin.ModelAdmin):
     list_filter = ["pub", "title"]
 
     # 搜索框，用书名进行模糊搜索
-    search_fields = ["title"]
+    search_fields = ["title", "pub"]
 
-    """
-    常规模型类属性：
-    """
+    # 添加可编辑的字段，一定是要在显示出来的，和list_display_links里面的字段互斥
+    list_editable = ["price", "market_price"]
 
 
 # 把我们的模型类注册到admin后台

@@ -11,7 +11,7 @@ class Book(models.Model):
     is_delete = models.BooleanField("是否删除", default=False)
 
     def __str__(self):
-        return "%s_%s_%s_%s" % (self.title, self.price, self.pub, self.market_price)
+        return "%s-%s-%s-%s" % (self.title, self.price, self.pub, self.market_price)
 
     class Meta:
         # 修改表名
@@ -195,6 +195,6 @@ aggregate:聚和
  
 【分组聚和的使用方法：】
 
- test
+ 
 
 """

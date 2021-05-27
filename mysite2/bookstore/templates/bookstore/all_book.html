@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookstore</title>
+    <style type="text/css">
+        #a_test tr td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        th{background-color: cadetblue;}
+    </style>
+
+</head>
+<body>
+<table id="a_test" width="1000px" height="200px" cellspacing="0" border="1px">
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>pub</th>
+        <th>price</th>
+        <th>market_price</th>
+        <th>op</th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.pub}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.market_price}}</td>
+        <td>
+            <a href="/bookstore/update_book/{{book.id}}">更新</a>
+            <a href="/bookstore/delete_book?id={{book.id}}">删除</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

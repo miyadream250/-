@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookstore</title>
+</head>
+
+<body>
+<form action="/bookstore/update_book/{{book.id}}" method="post">
+    <div>
+        <span> title </span>
+        <input type="text" value="{{ book.title }}" disabled="disabled">
+    </div>
+
+    <div>
+
+        pub <input type="text" value="{{ book.pub }}" disabled="disabled">
+
+    </div>
+    <div>
+
+        price <input type="text" value="{{ book.price }}" name="price">
+
+    </div>
+    <div>
+
+        market_price <input type="text" value="{{ book.market_price }}" name="market_price">
+
+    </div>
+
+    <input type="submit" value="更新">
+
+</form>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试静态文件</title>
+</head>
+<body>
+<!--绝对路径-->
+<img src="http://127.0.0.1:8000/static/image/Django2.png" width="100px" height="100px">
+
+<!--相对路径-->
+<img src="/static/image/Django2.png" width="100px" height="100px">
+
+<!--标签动态路径-->
+{% load static %}
+<img src="{% static  'image/Django2.png'%}">
+
+</body>
+</html>

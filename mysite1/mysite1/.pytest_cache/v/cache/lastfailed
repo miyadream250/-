@@ -1,0 +1,5 @@
+{
+  "views.py::test_01": true,
+  "views.py::test_02": true,
+  "views.py::test_03": true
+}

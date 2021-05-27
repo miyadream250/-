@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>这是base html</title>
+    {% endblock %}
+</head>
+<body>
+
+<a href="/my_music">音乐频道</a>
+<a href="/my_sport">体育频道</a>
+<a href="{% url 'news' %}">这是首页</a>
+<a href="{% url 'my_sport' %}">这是sport</a>
+<a href="{% url 'my_music' %}">这是music</a>
+<div>
+    {% block info %}
+    <p>这是首页</p>
+    {% endblock %}
+
+</div>
+
+<div> 有任何问题请联系 400-88888-99999</div>
+
+
+</body>
+</html>

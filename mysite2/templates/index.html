@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>这是外层页面</title>
+    {% endblock title %}
+</head>
+<body>
+<a href="{% url 'index' %}">首页</a>
+<a href="/sport/index">体育</a>
+<a href="/music/index">音乐</a>
+<a href="/news/index">新闻</a>
+
+{% block info %}
+<h1>这是外层页面</h1>
+{% endblock info %}
+
+<a href="{% url 'index' %}"> 首页跳转首页</a>
+
+有疑问联系 400-8888-9999
+
+
+</body>
+</html>

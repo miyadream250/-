@@ -7,8 +7,14 @@ class BookManager(admin.ModelAdmin):
     # list_display是固定的写法变量，不能随意改，不同的类属性，关联不同的样式
     list_display = ["id", "title", "pub", "price", "market_price", "is_delete"]
 
-    # 控制字段，哪些可以连接到修改页面
+    # 控制字段，哪些可以连接到修改页面，字段必须要在list_display里面
     list_display_links = ["id", "title"]
+
+    # 过滤器，以出版社名称过滤
+    list_filter = ["pub", "title"]
+
+    # 搜索框，用书名进行模糊搜索
+    search_fields = ["title"]
 
     """
     常规模型类属性：

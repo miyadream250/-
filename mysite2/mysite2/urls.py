@@ -23,6 +23,7 @@ urlpatterns = [
     path("news/", include("news.urls")),
     path("music/", include("music.urls")),
     path("sport/", include("sport.urls")),
-    path("bookstore/", include("bookstore.urls"))
+    path("bookstore/", include("bookstore.urls")),
+    path("oto/", include("oto.urls"))
 
 ]

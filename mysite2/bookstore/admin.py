@@ -24,9 +24,8 @@ class BookManager(admin.ModelAdmin):
 
 
 class AuthorManager(admin.ModelAdmin):
-    list_display = ["name", "age", "email"]
+    list_display = ["id", "name", "age", "email"]
     list_editable = ["age"]
-    # list_per_page = ["id"]
 
 
 # 把我们的模型类注册到admin后台

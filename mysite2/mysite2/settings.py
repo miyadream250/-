@@ -125,3 +125,9 @@ STATIC_URL = '/static/'
 
 # 加载静态文件路径
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# session过期时间  14天
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 2
+
+# 是否随着浏览器关闭而session过期，清除
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

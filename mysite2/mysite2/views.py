@@ -19,3 +19,14 @@ def set_cookie(request):
 def get_cookie(request):
     res = request.COOKIES.get("name", "cookies时效")
     return HttpResponse("成功获取cookie %s" % res)
+
+
+def set_session(request):
+    request.session["name"] = "wwc"
+
+    return HttpResponse("session is  ok ")
+
+
+def get_session(request):
+    name = request.session["name"]
+    return HttpResponse("session value is %s" % name)

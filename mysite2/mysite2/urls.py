@@ -28,5 +28,7 @@ urlpatterns = [
     path("oto/", include("oto.urls")),
     path("set_cookie", views.set_cookie),
     path("get_cookie", views.get_cookie),
+    path("get_session", views.get_session),
+    path("set_session", views.set_session)
 
 ]

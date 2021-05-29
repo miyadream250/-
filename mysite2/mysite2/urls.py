@@ -19,11 +19,14 @@ from mysite2 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index', views.index_templates, name="index"),
+    path('index_templates', views.index_templates, name="index"),
+    path('index', views.index_view),
     path("news/", include("news.urls")),
     path("music/", include("music.urls")),
     path("sport/", include("sport.urls")),
     path("bookstore/", include("bookstore.urls")),
-    path("oto/", include("oto.urls"))
+    path("oto/", include("oto.urls")),
+    path("set_cookie", views.set_cookie),
+    path("get_cookie", views.get_cookie),
 
 ]

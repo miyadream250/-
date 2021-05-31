@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "user"
 ]
 
 MIDDLEWARE = [
@@ -76,7 +77,7 @@ DATABASES = {
         'NAME': "mynote",
         "USER": 'root',
         "PASSWORD": "",
-        "PORT": 3306,
+        "PORT": "3306",
         "HOST": "127.0.0.1"
     }
 }
@@ -104,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -115,4 +116,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# 加载静态文件
 STATIC_URL = '/static/'
+
+# 加载静态文件路径
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# session过期时间  14天,单位秒
+SESSION_COOKIE_AGE = 60 * 60 * 24
+
+# 是否随着浏览器关闭而session过期，清除
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

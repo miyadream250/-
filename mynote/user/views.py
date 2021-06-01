@@ -48,6 +48,17 @@ def reg_view(request):
 
 def login_view(request):
     if request.method == "GET":
+        # 检查session还在不在
+        if request.session.get("uname") and request.session.get("uid"):
+            return HttpResponse("已登录")
+        c_uname = request.COOKIES.get("uname")
+        uid = request.COOKIES.get("uid")
+
+        # 检查cookie还在不在,如果在，回写session
+        if c_uname and uid:
+            request.session["uname"] = c_uname
+            request.session["uid"] = uid
+            return HttpResponse("已登录")
         return render(request, "user/login.html")
 
     elif request.method == 'POST':
@@ -55,14 +66,6 @@ def login_view(request):
         uname = request.POST.get("username")
         pwd = request.POST.get("password")
 
-        # try:
-        #     res = User.objects.get(username=uname, password=pwd_md5)
-        #     if request.POST.get("select"):
-        #         request.session["uname"] = uname
-        #         request.session["id"] = res.id
-        #     return HttpResponse("登录成功")
-        # except Exception as e:
-        #     return HttpResponse("登录失败%s" % e)
         try:
             res = User.objects.get(username=uname)
         except Exception as e:
@@ -74,10 +77,16 @@ def login_view(request):
         if res.password != pwd_md5:
             return HttpResponse("用户名或密码不存在")
 
+        # 存session
         request.session["uname"] = uname
         request.session["uid"] = res.id
-        request.COOKIES.
-        return HttpResponse("登录成功")
+        resp = HttpResponse("登录成功")
+        # 勾选了选择项，存cookie
+        if request.POST.get("select"):
+            expire_time = 60 * 60 * 24 * 3
+            resp.set_cookie(key=res.username, value=uname, max_age=expire_time)
+            resp.set_cookie(key="uid", value=res.id, max_age=expire_time)
+        return resp
 
 
 """
